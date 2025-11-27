@@ -244,5 +244,3 @@ done
 🔹 Advanced Shell: sed, awk, cut, grep, crontab, regex, trap
 
 ---
-
-**Next:** Reply `Day2` to continue 🚀
