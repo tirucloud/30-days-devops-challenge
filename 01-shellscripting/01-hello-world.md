@@ -76,15 +76,11 @@ source ~/.bashrc
 export VERSION=1.0.5
 docker build -t myapp:$VERSION .
 ```
-## Use environment variables to:
+## 📌 Shell Script Example: `deploy.sh`Use environment variables to:
 - Control application configuration
 - Version Docker images
 - Automate deployment
 - Avoid hardcoding values
-
----
-
-## 📌 Shell Script Example: `deploy.sh`
 
 ```bash
 #!/bin/bash
