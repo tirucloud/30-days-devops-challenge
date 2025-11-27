@@ -179,7 +179,60 @@ case $action in
   *) echo "Usage: $0 {start|stop}" ;;
 esac
 ```
+## if-else-case
+```
+#!/bin/bash
+# Script Name: service-check.sh
 
+SERVICE="docker"
+
+echo "Checking status of $SERVICE service..."
+
+# Check if service exists & determine running status
+if systemctl list-unit-files | grep -q "^$SERVICE.service"; then
+
+    # Get service status (active/inactive/failed)
+    status=$(systemctl is-active $SERVICE)
+
+    if [ "$status" = "active" ]; then
+        echo "✅ $SERVICE service is currently RUNNING."
+    else
+        echo "⚠️  $SERVICE service is NOT running. Current status: $status"
+
+        # Let user choose next action
+        echo -e "\nSelect an action:"
+        echo "1) Start service"
+        echo "2) Check logs"
+        echo "3) Exit"
+
+        read -p "Enter choice (1/2/3): " choice
+
+        case $choice in
+            1)
+              echo "Starting $SERVICE service..."
+              sudo systemctl start $SERVICE
+              echo "Service started."
+              ;;
+            2)
+              echo "Showing last 20 log lines..."
+              sudo journalctl -u $SERVICE -n 20
+              ;;
+            3)
+              echo "Exiting script."
+              exit 0
+              ;;
+            *)
+              echo "❌ Invalid option. Exiting."
+              exit 1
+              ;;
+        esac
+    fi
+
+else
+    echo "❌ Service $SERVICE does not exist on this system."
+    exit 1
+fi
+```
 ---
 
 ## 4️⃣ Loops
