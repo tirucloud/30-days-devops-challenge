@@ -22,6 +22,7 @@
 ### **create a demo.sh file**
 ```bash
 #!/bin/bash
+echo "Welcome to shell!"
 ```
 
 ### **Run Script**
