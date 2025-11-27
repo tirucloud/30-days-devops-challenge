@@ -72,6 +72,56 @@ Add to .bashrc or .profile
 echo 'export PROJECT=devops' >> ~/.bashrc
 source ~/.bashrc
 ```
+```
+export VERSION=1.0.5
+docker build -t myapp:$VERSION .
+```
+
+# DevOps Shell Scripting – Environment Variables Demo
+## Practical Use Case: Deploying Application with Docker & Kubernetes
+
+---
+
+## 🎯 Objective
+Use environment variables to:
+- Control application configuration
+- Version Docker images
+- Automate deployment
+- Avoid hardcoding values
+
+---
+
+## 📌 Shell Script Example: `deploy.sh`
+
+```bash
+#!/bin/bash
+
+# Environment variables
+export APP_NAME="payment-service"
+export VERSION="v1.2.0"
+export AWS_ACCOUNT_ID="123456789012"
+export REGION="us-east-1"
+export ECR_REPO="$AWS_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$APP_NAME"
+
+echo "----- Starting Deployment -----"
+echo "App Name : $APP_NAME"
+echo "Version  : $VERSION"
+echo "ECR Repo : $ECR_REPO"
+
+# Build Docker image
+docker build -t $APP_NAME:$VERSION .
+
+# Tag image
+docker tag $APP_NAME:$VERSION $ECR_REPO:$VERSION
+
+# Push to AWS ECR
+docker push $ECR_REPO:$VERSION
+
+# Update Kubernetes deployment
+kubectl set image deployment/$APP_NAME $APP_NAME=$ECR_REPO:$VERSION
+
+echo "Deployment completed successfully!"
+
 ---
 
 ## 3️⃣ Conditions (if / else / case)
