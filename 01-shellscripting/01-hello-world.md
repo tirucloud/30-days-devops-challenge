@@ -63,6 +63,15 @@ echo $PATH
 export PROJECT=devops
 ```
 
+```
+echo $PROJECT
+# Make it available to other shells
+
+Add to .bashrc or .profile
+
+echo 'export PROJECT=devops' >> ~/.bashrc
+source ~/.bashrc
+```
 ---
 
 ## 3️⃣ Conditions (if / else / case)
