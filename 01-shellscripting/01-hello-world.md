@@ -124,7 +124,17 @@ kubectl rollout undo deployment/$APP_NAME
 ---
 
 ## 3️⃣ Conditions (if / else / case)
+### Check if Service Running
 
+```bash
+service="docker"
+if systemctl is-active --quiet $service; then
+  echo "$service running"
+else
+  echo "$service stopped"
+fi
+```
+### Check running status of pods 
 ```bash
 #!/bin/bash
 
@@ -159,18 +169,8 @@ fi
 
 ```
 
-### Real Example – Check if Service Running
 
-```bash
-service="docker"
-if systemctl is-active --quiet $service; then
-  echo "$service running"
-else
-  echo "$service stopped"
-fi
-```
-
-### Case Example
+## Case Example
 
 ```bash
 action=$1
