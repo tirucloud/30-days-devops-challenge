@@ -47,8 +47,13 @@ chmod +x demo.sh
 ## 2️⃣ Variables
 
 ```bash
-name="Thiru"
-echo "Hello $name"
+#!/bin/bash
+
+echo "Hello, what is your name?"
+read name
+
+echo "Nice to meet you, $name"
+
 ```
 
 ### Environment Variables
