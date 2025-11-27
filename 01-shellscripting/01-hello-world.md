@@ -114,6 +114,13 @@ kubectl set image deployment/$APP_NAME $APP_NAME=$ECR_REPO:$VERSION
 
 echo "Deployment completed successfully!"
 ```
+```
+# Check the update status
+kubectl rollout status deployment/$APP_NAME
+
+# Undo if required
+kubectl rollout undo deployment/$APP_NAME
+```
 ---
 
 ## 3️⃣ Conditions (if / else / case)
