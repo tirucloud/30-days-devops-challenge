@@ -2,7 +2,7 @@
 - It allows users to enter commands to perform actions such as file management, system control, and running applications.
 - It serves as both a user interface and a scripting environment used to automate tasks.
 - The shell acts as an interpreter, translating user commands into instructions that the operating system can execute.
-## 📌 Topics for Day 1
+## 📌 Topics:
 
 | Topic                 | Coverage                          |
 | --------------------- | --------------------------------- |
