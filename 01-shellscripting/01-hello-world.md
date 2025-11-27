@@ -244,6 +244,41 @@ for i in {1..5}; do
   echo "Iteration $i"
 done
 ```
+```
+#!/bin/bash
+
+NAMESPACE="production"
+APP="payments"
+
+echo "Checking restart count of $APP pods in namespace $NAMESPACE"
+
+# Get list of pod names
+pods=$(kubectl get pods -n $NAMESPACE -o jsonpath="{.items[*].metadata.name}" | tr ' ' '\n' | grep $APP)
+
+for pod in $pods
+do
+    # Get restart count for each pod
+    restart_count=$(kubectl get pod $pod -n $NAMESPACE -o jsonpath="{.status.containerStatuses[0].restartCount}")
+
+    echo "Pod: $pod | Restart Count: $restart_count"
+
+    if [ $restart_count -gt 3 ]; then
+        echo "⚠️  Pod $pod is restarting frequently. Taking corrective action..."
+        
+        # Restart the specific pod (delete, so deployment recreates it)
+        kubectl delete pod $pod -n $NAMESPACE
+
+        echo "🔁 Restart triggered for $pod"
+    else
+        echo "✔️  Pod $pod is healthy"
+    fi
+
+    echo "---------------------------------------------"
+done
+
+echo "Health check completed."
+```
+
 
 ### **While Loop**
 
