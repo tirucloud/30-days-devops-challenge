@@ -126,12 +126,37 @@ kubectl rollout undo deployment/$APP_NAME
 ## 3️⃣ Conditions (if / else / case)
 
 ```bash
-num=10
-if [ $num -gt 5 ]; then
-  echo "Greater than 5"
+#!/bin/bash
+
+APP_NAME="webapp"
+NAMESPACE="default"
+
+echo "Checking pod status for application: $APP_NAME ..."
+
+# Get pod status
+pod_status=$(kubectl get pods -n $NAMESPACE | grep $APP_NAME | awk '{print $3}')
+not_running=false
+
+for status in $pod_status
+do
+  if [ "$status" != "Running" ]; then
+    not_running=true
+    echo "❌ Pod is NOT running. Status: $status"
+  fi
+done
+
+if [ "$not_running" = true ]; then
+  echo "⚠️ One or more pods are in a failed state!"
+
+  # Example alert (email or Slack notification)
+  echo "Sending alert to DevOps Team..."
+  # curl -X POST -H 'Content-type: application/json' --data '{"text":"Pods failing for service '$APP_NAME'!"}' https://hooks.slack.com/services/xxxxx/yyyyy/zzzzz
+
+  exit 1
 else
-  echo "Less or Equal"
+  echo "✅ All pods are running normally."
 fi
+
 ```
 
 ### Real Example – Check if Service Running
