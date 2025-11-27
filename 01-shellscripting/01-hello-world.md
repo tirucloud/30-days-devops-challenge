@@ -76,14 +76,7 @@ source ~/.bashrc
 export VERSION=1.0.5
 docker build -t myapp:$VERSION .
 ```
-
-# DevOps Shell Scripting – Environment Variables Demo
-## Practical Use Case: Deploying Application with Docker & Kubernetes
-
----
-
-## 🎯 Objective
-Use environment variables to:
+## Use environment variables to:
 - Control application configuration
 - Version Docker images
 - Automate deployment
