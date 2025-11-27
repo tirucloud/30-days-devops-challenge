@@ -19,7 +19,7 @@
 ## 1️⃣ Shell Script Basics
 
 ### **Shebang**
-
+### **create a demo.sh file**
 ```bash
 #!/bin/bash
 ```
