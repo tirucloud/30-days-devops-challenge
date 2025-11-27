@@ -22,6 +22,7 @@
 
 ```bash
 #!/bin/bash
+echo "Welcome to shell!"
 ```
 
 ### **Run Script**
