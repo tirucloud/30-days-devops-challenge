@@ -1,5 +1,7 @@
 # DevOps Senior Engineer Prep – Day 1 (Shell Scripting)
-- In Linux, a shell is a command-line interface that allows users to interact with the operating system and execute various commands. It's both a user interface and a scripting language that provides a way to communicate with the computer system through textual commands. The shell is a type of program called an interpreter. 
+- It allows users to enter commands to perform actions such as file management, system control, and running applications.
+- It serves as both a user interface and a scripting environment used to automate tasks.
+- The shell acts as an interpreter, translating user commands into instructions that the operating system can execute.
 ## 📌 Topics for Day 1
 
 | Topic                 | Coverage                          |
