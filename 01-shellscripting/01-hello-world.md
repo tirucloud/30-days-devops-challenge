@@ -17,19 +17,19 @@
 ---
 
 ## 1️⃣ Shell Script Basics
-
+```
 ### **Shebang**
 Run Script / Execute Shell Scripts
 
-#### Method 1: Make script executable and run
+# Method 1: Make script executable and run
 chmod +x script.sh
 ./script.sh
-#### Method 2: Run without changing permissions
+# Method 2: Run without changing permissions
 bash script.sh
 sh script.sh
-#### Method 3: Run with full path
+# Method 3: Run with full path
 /bin/bash /path/to/script.sh
-
+```
 ### **create a demo.sh file**
 ```bash
 #!/bin/bash
