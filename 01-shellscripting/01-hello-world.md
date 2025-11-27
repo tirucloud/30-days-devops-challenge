@@ -121,7 +121,7 @@ docker push $ECR_REPO:$VERSION
 kubectl set image deployment/$APP_NAME $APP_NAME=$ECR_REPO:$VERSION
 
 echo "Deployment completed successfully!"
-
+```
 ---
 
 ## 3️⃣ Conditions (if / else / case)
