@@ -18,9 +18,8 @@
 
 ## 1️⃣ Shell Script Basics
 ```
-### **Shebang**
-Run Script / Execute Shell Scripts
-
+# Shebang
+# Run Script / Execute Shell Scripts
 # Method 1: Make script executable and run
 chmod +x script.sh
 ./script.sh
