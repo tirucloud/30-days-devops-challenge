@@ -1,6 +1,6 @@
 locals {
 
-  region          = "eu-west-1"
+  region          = "ap-south-1"
   name            = "gemini-eks-cluster"
   vpc_cidr        = "10.0.0.0/16"
   azs             = ["eu-west-1a", "eu-west-1b"]
