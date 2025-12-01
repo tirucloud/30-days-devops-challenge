@@ -30,7 +30,7 @@ terraform apply --auto-approve
 
 - Update your kubeconfig file to connect to the EKS cluster
 ```bash
-aws eks --region eu-west-1 update-kubeconfig --name gemini-eks-cluster
+aws eks --region ap-south-1 update-kubeconfig --name gemini-eks-cluster
 ```
 
 - Verify the cluster connection
